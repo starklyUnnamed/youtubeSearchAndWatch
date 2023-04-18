@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 from time import sleep
 
-def main():  # sourcery skip: extract-duplicate-method, extract-method
+def main():
     search = input("What would you like to search youtube for? ").lower()
     watch = input("Would you like to watch the first video? ").lower()
     watch = watch in {"yes", "y", "yeah", "sure", "yup"}
@@ -15,11 +15,6 @@ def main():  # sourcery skip: extract-duplicate-method, extract-method
         firstVideo = browser.find_element(By.XPATH, "//yt-formatted-string[@class='style-scope ytd-video-renderer']")
         firstVideo.click()
         sleep(1)
-        """try:
-            playButton = browser.find_element(By.XPATH, "//button[@title='Play (k)']")
-        except NoSuchElementException: 
-            playButton = browser.find_element(By.XPATH, "//div[@id='columns']")
-        playButton.click()"""
     skip_ads(browser)
 
 def skip_ads(browser):
@@ -30,5 +25,5 @@ def skip_ads(browser):
             skipButton = browser.find_element(By.XPATH, "//button[@class='ytp-ad-skip-button ytp-button']")
             skipButton.click()
         except NoSuchElementException:
-            skipped == True
+            skipped = True
 main()
