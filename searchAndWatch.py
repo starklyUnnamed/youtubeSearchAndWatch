@@ -22,7 +22,7 @@ def skip_ads(browser):
     while not skipped:
         try:
             sleep(6)
-            skipButton = browser.find_element(By.XPATH, "//button[@class='ytp-ad-skip-button ytp-button']")
+            skipButton = browser.find_element(By.XPATH, "//button[@class='ytp-ad-skip-button-modern ytp-button']")
             skipButton.click()
         except NoSuchElementException:
             skipped = True
